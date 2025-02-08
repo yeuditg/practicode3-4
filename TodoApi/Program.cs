@@ -50,7 +50,7 @@ app.MapPost("/items", async (ToDoDbContext db, Item item) =>
 });
 
 // עדכון משימה
-app.MapPut("/items/{id}", async (int id,  bool updatedItem,ToDoDbContext db) =>
+app.MapPut("/items/{id}", async (int id, bool updatedItem,ToDoDbContext db) =>
 {
     var item = await db.Items.FindAsync(id);
     if (item is null) return Results.NotFound();
@@ -74,5 +74,5 @@ app.MapDelete("/items/{id}", async (int id, ToDoDbContext db) =>
     await db.SaveChangesAsync();
     return Results.NoContent();
 });
-
+app.MapGet("/" ,()=>"AuthServer API is running");
 app.Run();
