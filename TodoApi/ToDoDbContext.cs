@@ -28,13 +28,13 @@ public partial class ToDoDbContext : DbContext
             .HasCharSet("utf8mb4");
 
         modelBuilder.Entity<Item>(entity =>
-        {
+       {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
             entity.ToTable("Items");
 
             entity.Property(e => e.Name).HasMaxLength(100);
-        });
+        }); 
 
         OnModelCreatingPartial(modelBuilder);
     }
